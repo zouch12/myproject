@@ -1,0 +1,106 @@
+
+{% extends "layout.html" %}
+
+    {% block title %}
+        registration
+    {% endblock %}
+
+    {% block main %}
+    <div class="size">
+        <form action="/register" method="post" >
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label for="firstname">first name:</label>
+                    <input type="text" name="firstname" value="" placeholder="first" autocomplete="off" autofocus required>
+                </div>
+                <div class="col-md-4">
+                    <label for="middlename">middle name:</label>
+                    <input type="text" name="middlename" value="" placeholder="middle" autocomplete="off">
+                </div>
+                <div class="col-md-4">
+                    <label for="lastname">last name:</label>
+                    <input type="text" name="lastname" value="" placeholder="last" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Date Of Birth:</label> 
+                    <input type="date"  name="DOB" required>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Height:</label>
+                    <input type="number" name="height" placeholder="Height" min="1" max="120" autocomplete="off"><label>inches</label>
+                </div>
+            </div>
+
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Weight:</label>
+                    <input type="number" name="weight" placeholder="weight" min="1" max="500" autocomplete="off"><label>lbs</label>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label for="">Team:</label>
+                    <select name="team" required>
+                        <option selected disabled>team</option>
+                        {% for t in Team %}
+                        <option value="{{ t }}" >{{ t }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Community:</label>                 
+                    <select name="community" required>
+                        <option  selected disabled>community</option>
+                        {% for c in com %}
+                        <option value="{{ c }}">{{ c }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Position:</label> 
+                    <select name="position" required>
+                        <option  selected disabled>position</option>
+                        {% for p in pos %}
+                        <option value="{{ p }}">{{ p }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3, space">
+                <div class="col-md-4">
+                    <label>Email:</label>
+                    <input type="email" name="email" placeholder="email address" required>
+                </div>
+            </div>   
+            <div class="row g-3, space">             
+                    <div class="col-md-4">
+                        <label for="">Username:</label>
+                        <input type="text" name="username" placeholder="username" autocomplete="off" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Password:</label>
+                        <input type="password" name="password" placeholder="password" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Confirm:</label>
+                        <input type="password" name="confirm" placeholder="confirm password" required>
+                    </div>
+            </div>
+            <div class="space">
+                <label for="">Contact number:</label>
+                <input type="tel" name="contact" placeholder="Contact number" autocomplete="off">
+            </div>
+            <div class="row g-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="static/css1.css" rel="stylesheet" >
+        <script src=></script>
+        <script src=></script>
+        <title>{% block title%}Homepage{% endblock %}</title>
+    </head>
+
+    <body>
+        <div class="parent">
+            <div class="container p-2">
+                <div class="space">
+                    <h2><a>WELCOME TO DENNERY SPORTS</a></h2>
+                    <!-- <div >
+                        <button class="but" href="#">Dark Mode</button>
+                    </div> -->
+                </div>
+                <div>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <header>
+                                <div class="alert alert-primary border text-center" role="alert">
+                                    {{ message }}
+                                </div>
+                            </header>
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                
+                <nav class="">
+                    <div>
+                        <h3><a href="/">Home Page</a></h3>
+                        <ul>
+                            <li><a href="/register" class="present">Register</a></li>
+
+                            {% if not session.user_id %}
+                                <li><a href="/login" class="present">Login</a></li>
+                            {% else %}
+                                <li><a href="/release" class="present">Release</a></li>
+                                {% if session.user_id == session.coach %}
+                                    <li><a href="/requestt" class="present">Request</a></li>
+                                {% endif %}
+                                <li><a href="/logout" class="present">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <ul>
+                        <li>
+                            <a class="present" href="/about18" >18+</a>
+                            <ul>
+                                <li><a href="/about18" >about</a></li>
+                                <li><a href="/trophies18" >trophies</a></li>
+                                <li><a href="/fball18" >football team</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/aboutWhite" class="present">Whitehouse</a>
+                            <ul>
+                                <li><a href="/aboutWhite">about</a></li>
+                                <li><a href="/trophiesWhite">trophies</a></li>
+                                <li><a href="/fballWhite">football team</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/aboutDcyo" class="present">DCYO</a>
+                            <ul>
+                                <li><a href="/aboutDcyo">about</a></li>
+                                <li><a href="trophiesDcyo">trophies</a></li>
+                                <li><a href="fballDcyo">football team</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/aboutUnder" class="present">UnderRock</a>
+                            <ul>
+                                <li><a href="/aboutUnder">about</a></li>
+                                <li><a href="/trophiesUnder">trophies</a></li>
+                                <li><a href="/fballUnder">football team</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/aboutHilltop" class="present">Hilltop Ballers</a>
+                            <ul>
+                                <li><a href="/aboutHilltop">about</a></li>
+                                <li><a href="/trophiesHilltop">trophies</a></li>
+                                <li><a href="fballHilltop">football team</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/aboutCalor" class="present">Calor</a>
+                            <ul>
+                                <li><a href="/aboutCalor">about</a></li>
+                                <li><a href="/trophiesCalor">trophies</a></li>
+                                <li><a href="/fballCalor">football team</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="present">Other</a>
+                            <ul>
+                                <li><a href="/tournament">Tournaments</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                {% if session.coach %}
+                                <li><a href="/trophy">Trophy</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            
+            <main class="container p-2">
+                {% block main %}
+                    
+                    <h4>About</h4>
+                    <p>
+                        Welcome to the dennery sporting webpage. You will be able to get information primarily on the different football teams 
+                        that we have within our community and the competitions that we hold. 
+                    </p> 
+                    <p>
+                        Players have an oppotunity to apply for clubs that they would like to be part of and get relevant information via 
+                        this website. Interested players are encouraged to apply to their team of interest as some information is only  available once 
+                        registered with clubs.
+                    </p>   
+                    <p>
+                        I hope you do have a wonderfull experience using our platform and we hope that it provides you quite the convinience 
+                        player, coach or spectator in the world of sports.
+                    </p>
+
+                {% endblock %}
+            </main>
+        </div>
+    </body>
+
+</html>

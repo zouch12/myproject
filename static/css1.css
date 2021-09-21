@@ -1,0 +1,127 @@
+/* css for index page*/
+
+body {
+    /* background:rgb(223, 250, 249); */
+    /* background-image: url("https://kclrfanzone.com/wp-content/uploads/2015/12/o-SOCCER-facebook.jpg"); */
+    background-image: url("https://i.pinimg.com/originals/96/b2/44/96b2445f75d1338341636a63e5cd26b7.jpg");
+    color:black;
+}
+
+.parent {
+    background-color: rgb(237, 247, 252);
+    margin: auto;
+    width: 80%;
+    opacity: 0.9;
+}
+
+h2{
+    color:silver;
+    background-color:rgb(3, 99, 99);
+    text-align: center;
+    text-decoration: none;
+    padding:none;
+    margin:2px;
+}
+
+h3 {
+    padding:none;
+    margin:4px;
+}
+
+h3 a{
+    text-decoration: none;
+    color: rgb(58, 58, 57);
+}
+
+h4 {
+    color: rgb(19, 37, 99);
+}
+
+/* .but {
+    float:right;
+    background-color:rgb(102, 84, 84);
+    position: relative;
+    margin:2px;
+} */
+
+button{
+    border-radius: 5px;
+}
+
+nav {
+    background:rgb(145, 247, 238);
+    text-align:center;
+    clear:both;
+}
+
+nav ul{
+    display:inline-flex;
+    list-style-type: none;
+    background-color:rgb(5, 129, 61);
+    margin: 2px;
+}
+
+nav ul li {
+    margin:5px;
+    padding:3px;
+    width:auto;
+    text-align: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.present:hover {
+    background-color:rgb(176, 105, 218);
+    border-radius: 3px;
+    text-align:center;
+    width:auto;
+    color:rgb(216, 207, 207);
+}
+
+nav ul li ul {
+    background-color:rgb(253, 251, 251);
+    border-radius: 3px;
+    margin-top:3px;
+    display:none;
+    text-align: center;
+    width:auto;
+}
+
+nav ul li ul li {
+    display:block;
+    text-align: center;
+    background: transparent;
+    margin-left: -32px;  
+}
+
+nav ul li ul li:hover {
+    background-color: rgb(226, 128, 250);
+    border-radius: 5px;
+}
+
+
+nav ul li:hover ul {
+    display:block;
+    position: absolute;
+}
+
+/* form registration */
+
+label {
+    font-weight: bold;
+}
+
+.size {
+    background-color: rgb(176, 205, 209);
+    margin:auto;
+    padding: 10px;
+    width: 1000px;
+}
+
+.space{
+    margin-bottom: 10px;
+}
+

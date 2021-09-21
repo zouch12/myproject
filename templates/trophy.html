@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {{ team }}
+{% endblock %}
+
+{% block main %}
+    {% if session.coach %}
+    <div class="table-responsive-md">
+        <form action="/trophy" method="post" >
+            <div class="row g-s, space">
+                <div class="col-md-4">
+                    <label for="">Trophy:</label>
+                    <input type="text" name="trophy" placeholder="trophy" autocomplete="off" autofocus required>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Tournament:</label>
+                    <input type="text" name="Tournament" placeholder="Tournament" autocomplete="off" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Year:</label>
+                    <input type="number" name="Year" maxlength="4" placeholder="4-digit-Year" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="space">
+                <button class="btn btn-dark" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+    <div class="table-responsive-md">
+        <table class="table">
+            <tr>
+                <th>TROPHY</th>
+                <th>TOURNAMENT</th>
+                <th>YEAR</th>
+            </tr>
+            {% if Trophies %}
+                {% for trophy in Trophies %}
+                <tr>
+                    {% for value in trophy.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+
+{% endblock %}

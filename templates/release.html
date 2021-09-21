@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    release page
+{% endblock %}
+
+{% block main %}
+    {% if session.user_id != session.coach %}
+        <div>
+            <h3>CLICK TO APPLY FOR RELEASE FROM TEAM</h3>
+            <form action="/release" method="post">
+                <div class="space">
+                    <button class="btn btn-dark" type="submit" name="release" value="release">Release</button>
+                </div>
+                <div class="space">
+                    <button class="btn btn-dark" type="submit" name="cancel" value="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        {% if releas %}
+            <div class="space">
+                <div class="table-responsive-md">
+                    <form action="/release" method="post">
+                        <label>Players Who asked for release</label>
+                        <table class="table">
+                            <tr>
+                            {% for head in heads %}
+                                <th>{{ head }}</th>
+                            {% endfor %}
+                            </tr>
+                            {% for player in releas %}
+                                <tr>
+                                    {% for x, y in player.items() %}
+                                        <td>{{ y }}</td>
+                                    {% endfor %}
+                                    <td><input type="checkbox" name="releaseApp" value="{{ player['username'] }}"></input></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                        <div class="space">
+                            <button class="btn btn-dark" type="submit" name="rel" value="rel">Release</button>
+                        </div>
+                        <div class="space">
+                            <button class="btn btn-dark" type="submit" name="deny" value="deny">Deny</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        <div class="space">
+            <div class="table-responsive-md">
+                <form action="/release" method="post">
+                    <label>Current players on team</label>
+                    <table class="table"> 
+                        <tr>
+                        {% for head in heads %}
+                            <th>{{ head }} </th>
+                        {% endfor %}
+                        </tr>
+                        {% for datas in data %}
+                            <tr>
+                            {% for key, values in datas.items() %}
+                                <td>{{ values }}</td>
+                            {% endfor %}
+                            <td><input type="checkbox" name="releaseCur" value="{{ datas['username'] }}"></input></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <div class="space">
+                        <button class="btn btn-dark" type="submit" name="rel" value="rel">Release</button>
+                    </div> 
+                    <!-- removes all player info from tables except updates for admin and  emails player released from 'team'-->
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

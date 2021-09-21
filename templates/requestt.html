@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    request page
+{% endblock %}
+
+{% block main %}
+    <div class="size">
+        <div class="table-responsive-md">
+            <form action="/requestt" method="post">
+                <table class="table">
+                    <tr>
+                        {% for head in headingss %}
+                        <th>{{ head }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for it in info %}
+                    <tr>
+                        {% for key, value in it.items() %}
+                            {% if key != 'id' and key != 'hash' %}
+                                {%if not value %}
+                                    <td></td>
+                                {% else %}
+                                    <td name="{{ value }}" >{{ value }}</td>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <td><input type="checkbox" name="regist" value="{{ it['username'] }}"></input></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div class="space">
+                    <button class="btn btn-dark" type="submit" name="confirm" value="confirm">Confirm</button>  <!--onclick="confirm()"-->
+                </div>
+                <div class="space">
+                    <button class="btn btn-dark" type="submit" name="delete" value="delete">Delete</button>  <!--onclick="remove()"-->
+                </div>
+                <!-- confirm adds player to team and emails, delete removes player from register button and emails-->
+            </form>
+        </div>
+    </div> 
+
+{% endblock %}

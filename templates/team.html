@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {{team}}
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive-md">
+        <table class="table">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Date of Birth</th>
+                <th>Position</th>
+                <th>Community</th>
+            </tr>
+            {% for players in TeamPlayers %}
+            <tr>
+                {% for player in players.values() %}
+                    <td>{{ player }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+{% endblock %}
